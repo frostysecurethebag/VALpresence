@@ -91,8 +91,3 @@ def valpresence():
         idle_pres()
         
 
-
-
-if __name__=="__main__":
-    re()
-# put the code below to re()
