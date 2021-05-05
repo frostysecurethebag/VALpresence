@@ -8,25 +8,4 @@ You might be hardstuck in Silver but hey, at least you can show your friends you
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 This isn't in any way affiliated with Riot Games or VALORANT. 
