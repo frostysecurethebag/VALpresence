@@ -37,17 +37,3 @@ def getpresence():
             payload = (json.loads(base64.b64decode(presence['private'])))
             return payload
     
-print("pres working")
-pp=getpresence()
-with open("file.txt","w") as f:
-    json.dump(pp,f)
-
-
-
-    
-
-
-
-
-
-
