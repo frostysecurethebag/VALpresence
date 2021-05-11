@@ -1,11 +1,11 @@
 from conv import get_time
-from pres import getpresence,get_puuid,get_lockfile
+from pres import getpresence
 import json
 from pypresence import Presence
 import time
 
 
-client_id = ""#<- Your Client ID here
+client_id = "837294646160916520"#<- Your Client ID here
 RPC = Presence(client_id)
 RPC.connect()
 
@@ -33,7 +33,7 @@ def idle_pres():
 def valpresence():
     if x['isIdle']!=True:
         if x['isValid']==True:
-            if x['partyOwnerMatchMap']=="":
+            if x['matchMap']=="":
                 print("lobby rpc")
                 if x['partyState']!="MATCHMAKING":
                     if x['sessionLoopState']=='MENUS':
@@ -58,9 +58,9 @@ def valpresence():
                             
 
                         
-            elif x['partyOwnerMatchMap']!="": 
+            elif x['matchMap']!="": 
                 if x['sessionLoopState']=="PREGAME":
-                    mapname=x['partyOwnerMatchMap'].split("/")
+                    mapname=x['matchMap'].split("/")
                     print(mapname[3].lower())
                     RPC.update( details="Agent Select",
                                 large_image=(mapname[3].lower()),
@@ -72,10 +72,10 @@ def valpresence():
                         re()
 
                 elif x['sessionLoopState']=="INGAME":
-                    mapname=x['partyOwnerMatchMap'].split("/")
+                    mapname=x['matchMap'].split("/")
                     print(mapname[3].lower())
                     RPC.update( details="In a Match",
-                                state=f"{x['queueId'].upper()} ({x['partyOwnerMatchScoreAllyTeam']}-{x['partyOwnerMatchScoreEnemyTeam']})",
+                                state=f"{x['queueId'].upper()} [{x['partyOwnerMatchScoreAllyTeam']}-{x['partyOwnerMatchScoreEnemyTeam']}]",
                                 large_image=(mapname[3].lower()),
                                 start=get_time(x['queueEntryTime']),
                                 large_text=mapname[2]
@@ -90,4 +90,3 @@ def valpresence():
     else:
         idle_pres()
         
-
