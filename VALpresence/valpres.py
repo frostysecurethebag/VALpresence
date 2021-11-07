@@ -5,7 +5,7 @@ from pypresence import Presence
 import time
 
 
-client_id = "837294646160916520"#<- Your Client ID here
+client_id = ""#<- Your Client ID here
 RPC = Presence(client_id)
 RPC.connect()
 
